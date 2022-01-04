@@ -1,6 +1,6 @@
 # Server - Controller Node termination script (Logout Script)
 import boto3
-from loaders import BarLoader
+from loader import BarLoader
 import boto3.session
 
 loader = BarLoader()

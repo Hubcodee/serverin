@@ -1,0 +1,184 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Code Deployer{% endblock title %}
+
+
+{% block content %}
+
+{% if msg %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{msg}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+<h3 class="text-center">Code Deployer</h3>
+<div class="col-lg-10 m-4">
+    <div class="card h-100 p-3">
+        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
+            style="background-image: url('/static/assets/img/ivancik.jpg');">
+            <span class="mask bg-gradient-dark"></span>
+            <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                <h5 class="text-white font-weight-bolder mb-4 pt-2">Code Deployer</h5>
+                <p class="text-white">
+                    Code Deployer is a source to image and deployment (S2ID) platform. 
+                    Get a containerized image of your code deployed on kubernetes. Eventually, you will get the end-point of your project.
+                    <br>
+                    <strong>Pre-requisites :</strong> <div class="col-5 d-flex justify-content-end text-white">
+                    1. Upload your code to GitHub. <br>
+                    2. Get the GitHub URL. <br>
+                    3. Fill the following details in the form.
+                    </div>
+                </p>
+                <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                    Read More
+                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="col-lg-10 m-4">
+    <div class="card h-100 p-3">
+        <form action="" method="post">
+            {% csrf_token %}
+            <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
+                style="background-image: url('/static/assets/img/ivancik.jpg');">
+                <span class="mask bg-gradient-dark"></span>
+                <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                    <h5 class="text-white font-weight-bolder mb-4 pt-2">Submit Your Project Details</h5>
+                    <div class="col-md-12 mb-lg-0 mb-4">
+                        <div class="card mt-4">
+                            <div class="card-header pb-0 p-3">
+                                <div class="row">
+                                    <div class="col-6 d-flex align-items-center">
+                                        <h6 class="mb-0">Details</h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-3">
+                                <div class="row">
+                                    <div class="col-md-6 mb-md-0 mb-4">
+                                        <div
+                                            class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                                            <img class="w-10 me-3 mb-0"
+                                                src="https://cdn-icons-png.flaticon.com/512/2800/2800015.png"
+                                                alt="logo">
+                                            <input required type="text" name="title" class="form-control"
+                                                placeholder="Project Title">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div
+                                            class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                                            <img class="w-10 me-3 mb-0"
+                                                src="https://cdn-icons-png.flaticon.com/512/733/733609.png" alt="logo">
+                                            <input required type="url" name="link" class="form-control"
+                                                placeholder="GitHub Link">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row my-4">
+                                    <div class="">
+                                        <div
+                                            class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                                            <img class="w-10 me-3 mb-0"
+                                                src="https://cdn-icons-png.flaticon.com/512/2920/2920281.png"
+                                                alt="logo">
+                                            <div class="container">
+                                                <h4>Frontend Technology</h4>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" value="HTML/CSS/JS"
+                                                        name="Frontend" id="HTML" checked>
+                                                    <label class="form-check-label" for="HTML">
+                                                        HTML/CSS/JS
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" value="React JS"
+                                                        name="Frontend" id="React">
+                                                    <label class="form-check-label" for="React">
+                                                        React JS
+                                                    </label>
+                                                </div>
+                                                <h4>Database </h4>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" value="MySQL"
+                                                        name="Database" id="MySQL" checked>
+                                                    <label class="form-check-label" for="MySQL">
+                                                        MySQL
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" value="MongoDB"
+                                                        name="Database" id="Mongo">
+                                                    <label class="form-check-label" for="Mongo">
+                                                        MongoDB
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="container">
+                                                <h4>Backend Technology</h4>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" value="PHP"
+                                                        name="Backend" id="PHP" checked>
+                                                    <label class="form-check-label" for="PHP">
+                                                        PHP
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" value="Django"
+                                                        name="Backend" id="Django">
+                                                    <label class="form-check-label" for="Django">
+                                                        Django
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" value="Laravel"
+                                                        name="Backend" id="Laravel">
+                                                    <label class="form-check-label" for="Laravel">
+                                                        Laravel
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" value="Node JS"
+                                                        name="Backend" id="Node">
+                                                    <label class="form-check-label" for="Node">
+                                                        Node JS
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="">
+                                        <div
+                                            class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                                            <img class="w-10 me-3 mb-0"
+                                                src="https://cdn-icons-png.flaticon.com/512/3176/3176218.png"
+                                                alt="logo">
+                                            <textarea required rows="2" name="desc" class="form-control"
+                                                placeholder="Project Description"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="container-fluid my-2">
+                                <div class="text-center">
+                                    <button class="btn bg-gradient-dark mb-0 m-1 p-3 col-4" type="submit">
+                                        Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock content %}

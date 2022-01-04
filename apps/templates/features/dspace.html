@@ -1,0 +1,162 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Dev Space{% endblock title %}
+
+
+{% block content %}
+
+<div class="col-lg-10 m-4">
+    <div class="card h-100 p-3">
+        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
+            style="background-image: url('/static/assets/img/ivancik.jpg');">
+            <span class="mask bg-gradient-dark"></span>
+            <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                <h5 class="text-white font-weight-bolder mb-4 pt-2">Web IDE</h5>
+                <p class="text-white">Dev Space provides a Development Services platform to brush up your skills.
+                    It consists of Services like - Web IDE, Instances and Word press. <br>
+                    Web IDE - An online platform to compile and run your code. <br>
+                    Instances - Providing users experience of their own PCs on their fingertips. <br>
+                    WordPress - Users can launch their websites / apps on this platform dynamically. <br>
+                </p>
+                <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                    Read More
+                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="col-lg-10 mb-lg-0 m-4">
+    <div class="card">
+        <div class="card-body p-3">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="d-flex flex-column h-100">
+                        <!-- <p class="mb-1 pt-2 text-bold">Lecture</p> -->
+                        <h5 class="font-weight-bolder">Web IDE</h5>
+                        <p class="mb-5">Online Code Editor is a web based tool supporting multiple programming
+                            languages.
+                            It is a quick and easy way to compile source code and execute it online. You can save your
+                            source file.
+
+                        </p>
+
+                        <form action="" method="POST" class="row">
+                            {% csrf_token %}
+                            {% comment %} <button class="btn bg-gradient-dark mb-0 m-1 p-3 col-6" href=""
+                                target="_blank" value="1" name="" type="submit">
+                                <!-- <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>&nbsp;&nbsp; -->
+                                <!-- Put Your Attendance -->
+                            </button> {% endcomment %}
+                            <a class="btn btn-lg bg-gradient-dark m-3 p-3 col-6" href="" target="_blank">Go To Web
+                                IDE</a>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
+                    <div class="bg-gradient-primary border-radius-lg h-100">
+                        <img src="/static/assets/img/shapes/waves-white.svg"
+                            class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
+                        <div class="position-relative d-flex align-items-center justify-content-center h-100">
+                            <img class="w-60 position-relative z-index-2 p-0 m-0"
+                                src="/static/assets/img/illustrations/IDE.png" alt="IDE">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-10 mb-lg-0 m-4">
+    <div class="card">
+        <div class="card-body p-3">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="d-flex flex-column h-100">
+                        <!-- <p class="mb-1 pt-2 text-bold">Lecture</p> -->
+                        <h5 class="font-weight-bolder">Instances</h5>
+                        <p dir="ltr"><span>Need to work on a different OS, but struggling with your PC ?</span></p>
+                        <p dir="ltr"><span>&nbsp; &nbsp; &nbsp; &nbsp; Explore&nbsp; different OS, you are just a click
+                                away👆🏻</span></p>
+                        <p dir="ltr"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                Get your access to OS sooner&hellip;.</span></p>
+                        <br>
+
+                        <form action="" method="POST" class="row">
+                            {% csrf_token %}
+                            {% comment %} <button class="btn bg-gradient-dark mb-0 m-1 p-3 col-6" href=""
+                                target="_blank" value="1" name="" type="submit">
+                                <!-- <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>&nbsp;&nbsp; -->
+                                <!-- Put Your Attendance -->
+                            </button> {% endcomment %}
+                            <a class="btn btn-lg bg-gradient-dark m-3 p-3 col-6" href="" target="_blank">Learn More</a>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
+                    <div class="bg-gradient-primary border-radius-lg h-100">
+                        <img src="/static/assets/img/shapes/waves-white.svg"
+                            class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
+                        <div class="position-relative d-flex align-items-center justify-content-center h-100">
+                            <img class="w-80 position-relative z-index-2 p-0"
+                                src="/static/assets/img/illustrations/VM.png" alt="rocket">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-10 mb-lg-0 m-4 mb-3">
+    <div class="card">
+        <div class="card-body p-3">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="d-flex flex-column h-100">
+                        <!-- <p class="mb-1 pt-2 text-bold">Lecture</p> -->
+                        <h5 class="font-weight-bolder">Wordpress</h5>
+                        <p dir="ltr"><span>Want to manage the content of the website. Not so proficient in coding
+                                🤔</span></p>
+                        <p dir="ltr"><span>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                                &nbsp;&ldquo;</span><span>WordPress&rdquo;</span></p>
+                        <p dir="ltr"><span>Create and Manage your blogs and websites content without coding within a few
+                                clicks.</span></p>
+
+
+                        <form action="" method="POST" class="row">
+                            {% csrf_token %}
+                            {% comment %} <button class="btn bg-gradient-dark mb-0 m-1 p-3 col-6" href=""
+                                target="_blank" value="1" name="" type="submit">
+                                <!-- <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>&nbsp;&nbsp; -->
+                                <!-- Put Your Attendance -->
+                            </button> {% endcomment %}
+                            <a class="btn btn-lg bg-gradient-dark m-3 p-3 col-6" href="" target="_blank">Wordpress
+                                Home</a>
+                        </form>
+
+                    </div>
+                </div>
+                <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
+                    <div class="bg-gradient-primary border-radius-lg h-100">
+                        <img src="/static/assets/img/shapes/waves-white.svg"
+                            class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
+                        <div class="position-relative d-flex align-items-center justify-content-center h-100">
+                            <img class="w-80 position-relative z-index-2 p-0"
+                                src="/static/assets/img/illustrations/WP.png" alt="rocket">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock content %}
