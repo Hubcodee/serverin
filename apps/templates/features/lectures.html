@@ -1,0 +1,162 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Lectures{% endblock title %}
+
+{% block content %}
+
+{% if msg %}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{msg}}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+<div class="col-lg-10  m-4">
+    <div class="card h-100 p-3">
+        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
+            style="background-image: url('/static/assets/img/ivancik.jpg');">
+            <span class="mask bg-gradient-dark"></span>
+            <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                <h5 class="text-white font-weight-bolder mb-4 pt-2">Work with the rockets</h5>
+                <p class="text-white">Attend your online lectures with us.
+                    Add your lectures , attend them and mark your attendance daily.
+                    Enjoy Learning 😁
+                </p>
+
+                <a class="text-white text-sm font-weight-bold mb-0 icon-move-right mt-auto" href="javascript:;">
+                    Read More
+                    <i class="fas fa-arrow-right text-sm ms-1" aria-hidden="true"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% for i in a %}
+{% if forloop.counter0|divisibleby:1 %}
+<div class="row my-4">
+    {% endif %}
+    <div class="col-lg-10 mb-lg-0 m-4">
+        <div class="card">
+            <div class="card-body p-3">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="d-flex flex-column h-100">
+                            <p class="mb-1 pt-2 text-bold">Lecture</p>
+                            <h5 class="font-weight-bolder">{{i.name}}</h5>
+                            <p class="mb-5">By {{i.teacher_name}}<br>
+                                {{i.desc}}
+                            </p>
+
+                            <form action="{% url 'attendance' i.id %}" method="POST" class="row">
+                                {% csrf_token %}
+                                <button class="btn bg-gradient-dark mb-0 m-1 p-3 col-6" data-bs-toggle="modal"
+                                    data-bs-target="#modal-notification" value="1" name="{{i.name}}" type="submit">
+                                    Put Your Attendance
+                                </button>
+
+                                <div class="modal fade" id="modal-notification" tabindex="-1" role="dialog"
+                                    aria-labelledby="modal-notification" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content bg-primary text-white">
+                                            <div class="modal-header border-0">
+                                                <button type="button" class="btn-close bg-gray-500"
+                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="py-3 text-center">
+                                                    <span class="modal-icon display-1-lg"><span
+                                                            class="far fa-envelope-open"></span></span>
+                                                    <h2 class="h4 modal-title my-3">Important message!</h2>
+                                                    <p class="px-lg-5">You Have Put Your Attendance Successfully..</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End of Modal Content -->
+
+                                <a class="btn btn-md bg-gradient-dark mb-0 m-1 p-3 col-4" href="{{i.link}}"
+                                    target="_blank">Go To Lecture</a>
+
+                                <button type="button" class="btn btn-secondary mb-0 m-1 p-2 col-1"
+                                    data-bs-toggle="modal" data-bs-target="#modal-default"><i
+                                        class="fas fa-minus"></i></button>
+
+
+                            </form>
+
+                            <!-- <a onclick="return confirm('Do You Want To Remove A Subject')"
+                                href="{% url 'remove' i.id %}"
+                                class="btn bg-gradient-dark text-center mb-0 m-1 p-2 col-1" value="2" name="{{i.name}}"
+                                type="submit">
+                                <i class="fas fa-minus"></i>
+                            </a> -->
+
+
+
+                            <!-- Modal Content -->
+                            <div class="modal fade" id="modal-default" tabindex="-1" role="dialog"
+                                aria-labelledby="modal-default" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h2 class="h6 modal-title">Terms of Service</h2>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>With less than a month to go before the European Union enacts new
+                                                consumer privacy
+                                                laws for its citizens, companies around the world are updating their
+                                                terms of
+                                                service agreements to comply.</p>
+                                            <p>The European Union’s General Data Protection Regulation (G.D.P.R.) goes
+                                                into effect
+                                                on May 25 and is meant to ensure a common set of data rights in the
+                                                European Union.
+                                                It requires organizations to notify users as
+                                                soon as possible of high-risk data breaches that could personally affect
+                                                them.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <a href="{% url 'remove' i.id %}" class="btn bg-gradient-dark text-center"
+                                                value="2" name="{{i.name}}" type="submit">
+                                                Remove Lecture
+                                            </a>
+                                            <button type="button" class="btn btn-link ms-auto"
+                                                data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Modal Content -->
+                        </div>
+
+                    </div>
+                    <div class="col-lg-5 ms-auto text-center mt-5 mt-lg-0">
+                        <div class="bg-gradient-primary border-radius-lg h-100">
+                            <img src="/static/assets/img/shapes/waves-white.svg"
+                                class="position-absolute h-100 w-50 top-0 d-lg-block d-none" alt="waves">
+                            <div class="position-relative d-flex align-items-center justify-content-center h-100">
+                                <img class="w-100 position-relative z-index-2 pt-4"
+                                    src="/static/assets/img/illustrations/rocket-white.png" alt="rocket">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+{% endfor %}
+<div class="m-4">
+    <a class="btn btn-md col-2 bg-gradient-dark p-3" href="{% url 'add_lecture' %}" target="_blank">Add
+        Lecture</a>
+</div>
+{% endblock content %}

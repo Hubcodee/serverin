@@ -1,0 +1,73 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Support{% endblock title %}
+
+{% block content %}
+
+{% if msg %}
+<div class="alert col-10 alert-success alert-dismissible fade show" role="alert">
+    <h4>{{msg}}</h4>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><i class="fas fa-minus"></i></button>
+</div>
+{% endif %}
+
+<div class="container-fluid mt-5 text-center">
+    <form class="" action="" method="post">
+        {% csrf_token %}
+        <div class="overflow-hidden position-relative border-radius-lg bg-cover h-100"
+            style="background-image: url('/static/assets/img/ivancik.jpg');">
+            <span class="mask bg-gradient-dark"></span>
+            <div class="card-body position-relative z-index-1 d-flex flex-column h-100 p-3">
+                <h5 class="text-white font-weight-bolder mb-4 pt-2">Give Your Feedback/Suggestion Or Raise Your Query
+                </h5>
+                <div class="col-md-12 mb-lg-0 mb-4">
+                    <div class="card mt-4">
+                        <div class="card-header pb-0 p-3">
+                            <div class="row">
+                                <div class="col-6 d-flex align-items-center">
+                                    <h6 class="mb-0">Details</h6>
+                                </div>
+                                <div class="col-6 text-end">
+                                    <button class="btn bg-gradient-dark mb-0 m-1 p-3 col-6" type="submit">
+                                        Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="row">
+                                <div class="col-md-6 mb-md-0 mb-4">
+                                    <div
+                                        class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                                        <img class="w-10 me-3 mb-0"
+                                            src="https://cdn-icons-png.flaticon.com/512/3176/3176212.png" alt="logo">
+                                        <select class="form-select form-control text-secondary" name="querytype"
+                                            aria-label="Default select example">
+                                            <option selected>Select type of query</option>
+                                            <option value="Technical">Technical</option>
+                                            <option value="Service Usage">Service Usage</option>
+                                            <option value="Feedback/Suggestion">Feedback/Suggestion</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row my-4">
+                                <div class="">
+                                    <div
+                                        class="card card-body border card-plain border-radius-lg d-flex align-items-center flex-row">
+                                        <img class="w-10 me-3 mb-0"
+                                            src="https://cdn-icons.flaticon.com/png/512/733/premium/733107.png?token=exp=1640268393~hmac=1842177d2226f48450155ceee31fb3ab"
+                                            alt="logo">
+                                        <textarea required rows="3" name="desc" class="form-control"
+                                            placeholder="Problem Description/Suggestion"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+{% endblock content %}
